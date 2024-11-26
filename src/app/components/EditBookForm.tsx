@@ -1,5 +1,3 @@
-
-
 'use client';
 
 import React, { useState } from 'react';
@@ -10,20 +8,20 @@ type Books= {
   author: string;
   year: number;
   available: boolean;
-  language: string;  // Corrected 'Language' to 'language'
-  genre: string;  // Corrected 'Genre' to 'genre'
+  language: string;  
+  genre: string;  
 }
 type EditBookFormProps = {
-  book: Books;  // single book object
-  onClose: () => void;  // function to close the form
-  onUpdate: (book: Books) => void;  // function to update the book
+  book: Books;  
+  onClose: () => void;  
+  onUpdate: (book: Books) => void;  
 };
 
 const EditBookForm: React.FC<EditBookFormProps> = ({ book, onClose, onUpdate }) => {
-  const [formData, setFormData] = useState<Books>(book); // Initialize form with current book data
+  const [formData, setFormData] = useState<Books>(book); 
 
   const handleSubmit = () => {
-    onUpdate(formData); // Pass updated book data to onUpdate
+    onUpdate(formData); 
   };
 
   return (
@@ -38,7 +36,7 @@ const EditBookForm: React.FC<EditBookFormProps> = ({ book, onClose, onUpdate }) 
         value={formData.author}
         onChange={(e) => setFormData({ ...formData, author: e.target.value })}
       />
-      {/* other form fields */}
+     
       <button type="submit">Update</button>
       <button type="button" onClick={onClose}>Close</button>
     </form>
